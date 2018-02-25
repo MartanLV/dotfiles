@@ -1,0 +1,13 @@
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+[merge]
+  ff = only
+[push]
+  default = upstream
+[fetch]
+  prune = true
+[user]
+  name = Inernet User
+  email = street@number.home
+  signingkey = cya

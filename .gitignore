@@ -1,0 +1,7 @@
+.zplug
+.zcompdump
+utils.sh
+Brewfile
+.vim
+.DS_Store
+tags
