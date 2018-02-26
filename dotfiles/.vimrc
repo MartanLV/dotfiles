@@ -5,10 +5,10 @@ packadd terminus
 
 nnoremap <s-tab> za
 
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-set scrolloff=999
+" autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" autocmd FileChangedShellPost *
+"   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+" set scrolloff=999
 nnoremap L $
 nnoremap H ^
 " wrapped line movment
@@ -44,13 +44,13 @@ packadd vim-unimpaired
 packadd vim-textmanip
 
 " php
-packadd nvim-yarp
-packadd vim-hug-neovim-rpc
-" packadd deoplete-padawan
-packadd padawan.php
-packadd vim-php-namespace
-packadd deoplete.nvim
-call deoplete#enable()
+" packadd nvim-yarp
+" packadd vim-hug-neovim-rpc
+" " packadd deoplete-padawan
+" packadd padawan.php
+" packadd vim-php-namespace
+" packadd deoplete.nvim
+" call deoplete#enable()
 
 packadd tagbar
 packadd vim-surround

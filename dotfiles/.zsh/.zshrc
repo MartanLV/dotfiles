@@ -9,6 +9,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zaw"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "twang817/zsh-fasd"
 
 if ! zplug check; then
     zplug install

@@ -6,6 +6,7 @@ PATH=$HOME/bin
 # PATH=$PATH:$HOME/.zsh/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:$HOME/go/bin
 PATH=$PATH:$SYSTEM_PATH
 export PATH
 
