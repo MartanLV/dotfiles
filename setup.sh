@@ -8,5 +8,3 @@ done
 # https://github.com/Homebrew/homebrew-bundle
 brew bundle
 
-git clone https://github.com/zplug/zplug $ZPLUG_HOME
-

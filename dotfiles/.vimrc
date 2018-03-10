@@ -1,10 +1,24 @@
+execute pathogen#infect()
 " crete colorscheme at address "http://bytefluent.com/vivify/"
 " press "K" over any symbol to see docs
+let mapleader=" "
+let maplocalleader="\\"
 packadd vim-sensible
+
+"
 packadd terminus
 
+" fold
 nnoremap <s-tab> za
 
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+" k
+"
 " autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " autocmd FileChangedShellPost *
 "   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
@@ -15,7 +29,6 @@ nnoremap H ^
 nnoremap j gj
 nnoremap k gk
 
-let mapleader="\\"
 set ttimeoutlen=100 " if in terminal <Esc>O is a prefix for keycode, this helps in case you do O after <ESC>
 set autowrite " :set hidden allows to switch between unsaved buffers, but this just saves them, no questions asked
 " command W write " an alias coz too often I do :W instead of :w 
@@ -141,3 +154,4 @@ hi CursorLine ctermfg=NONE ctermbg=237 guifg=NONE guibg=NONE
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" source ~/.vim/laravel-package/blade.vim

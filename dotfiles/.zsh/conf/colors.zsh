@@ -14,3 +14,4 @@ CG[underline]="%{$(printf '\e4[m')%}"
 CG[dim]="%{$(printf '\e[2m')%}"
 CG[italic]="%{$(printf '\e[3m')%}"
 CG[curlyUnderline]="%{$(printf '\e[4:3m')%}"
+

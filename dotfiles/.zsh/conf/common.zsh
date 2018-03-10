@@ -19,3 +19,6 @@ export HISTSIZE=100000
 export HISTFILE="$HOME/.history"
 export SAVEHIST=$HISTSIZE
 export KEYTIMEOUT=1 # kills the lag
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

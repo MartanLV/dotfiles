@@ -1,8 +1,5 @@
-.zplug
 .zcompdump
 utils.sh
 Brewfile
 .vim
 .vimrc
-.DS_Store
-tags

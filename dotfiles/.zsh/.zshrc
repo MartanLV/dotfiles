@@ -4,23 +4,28 @@
 # * tab key terminal keybinding is ^I
 #__
 
-source $ZPLUG_HOME/init.zsh
 
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zaw"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "twang817/zsh-fasd"
+# zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install # are for word&tab completions
+eval "$(fasd --init env zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)" 
+# open in vim
+alias v='f -e vim'
 
-if ! zplug check; then
-    zplug install
-fi
+source ~/.zsh/conf/aliases.zsh 
+source ~/.zsh/conf/colors.zsh
+source ~/.zsh/conf/common.zsh
+source ~/.zsh/conf/helpers.zsh
+source ~/.zsh/conf/hooks.zsh
+source ~/.zsh/conf/keybindings.zsh
+source ~/.zsh/conf/prompts.zsh
 
-zplug load
+# man zshzle # all man pages via vim
+export MANPAGER="col -b | vim -MR -c 'set ft=man' - "
 
-for zsh_source in $HOME/.zsh/conf/*.zsh; do
-  source $zsh_source
-done
+# source ~/.zsh/plugins/iterm2.zsh
+source ~/.zsh/plugins/autosuggestions.zsh
+source ~/.zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# startup time test snippet:
+function zshSpeedTest() {
+	for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
+}
