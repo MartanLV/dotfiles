@@ -6,9 +6,11 @@ bindkey -M vicmd v edit-command-line
 
 bindkey '^ ' autosuggest-accept
 bindkey '^A' autosuggest-execute
+# alt + §
+bindkey '°' autosuggest-execute
 
 # Up and down arrow keys
-bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[A" history-beginning-search-forward
 bindkey "^[[B" history-beginning-search-backward 
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
@@ -30,3 +32,8 @@ function fg-bg() {
 }
 zle -N fg-bg
 bindkey '^Z' fg-bg
+
+if [ -f ~/.secret_zshrc ]; then
+	. ~/.secret_zshrc
+fi
+

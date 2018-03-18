@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# avoid running hooks when starting a rebase
+test -d "$GIT_DIR"/rebase-merge -o -d "$GIT_DIR"/rebase-apply && exit 0
+
+function _echo () {
+	[ ! -z $_GIT_PLUGIN_DEBUG ] && echo "$(tput bold)_GIT_PLUGIN_DEBUG:$(tput sgr0) $1"
+}
+
+declare -i n
+confKey=
+for plug in $(git config --get-regexp --global --includes plugins)
+do
+	if [ $(((n+=1) % 2 )) -eq 0 ]
+	then
+		if [ $(git config $confKey) == "true" ]
+		then
+			_echo "conf key IS true: $confKey"
+			plugName=${confKey##*.}
+			plugHook="$GIT_DIR/plugins/$plugName/hooks/pre-commit"
+			if [ -f $plugHook ]
+			then
+				"$plugHook"
+				ex=$?
+				if [ $ex -ne 0 ]
+				then
+					echo "Got interrupted by your git-plugin: \"$plugName\""
+					exit $ex
+				fi
+			else
+				_echo "not a file: $plugHook"
+			fi
+		else
+			_echo "conf key not true: $confKey"
+		fi
+	else
+		_echo "config proposal: $plug"
+		confKey=$plug
+	fi
+done
+		
+
+

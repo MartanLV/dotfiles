@@ -1,9 +1,10 @@
 # setopt XTRACE VERBOSE # uncomment to debug
 ### NOTES
-# * to get key combination sends for your terminal use: sed -n l 
+# * to get key combination sends for your terminal use: sed -n
 # * tab key terminal keybinding is ^I
 #__
 
+alias vim='nvim'
 
 # zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install # are for word&tab completions
 eval "$(fasd --init env zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)" 

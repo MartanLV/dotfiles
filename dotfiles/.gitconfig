@@ -1,3 +1,9 @@
+[init]
+  templateDir = ~/.git-init-template
+[plugins]
+  composer = false
+  npm = false
+  spellchecker = true
 [core]
   excludesfile = ~/.gitignore-global
   editor = vim
