@@ -23,4 +23,6 @@ Or use commands `git config plugins.composer true`
 
 > remember, git hooks must be executable
 
+> Turn on debugging: `export _GIT_PLUGIN_DEBUG = true`
+
 
