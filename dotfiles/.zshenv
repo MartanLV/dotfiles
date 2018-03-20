@@ -13,4 +13,5 @@ export PATH
 
 # ziish goes there
 export ZDOTDIR=$HOME/.zsh
+export ONI_CONFIG_FILE=$HOME/.oni/config.js
 
