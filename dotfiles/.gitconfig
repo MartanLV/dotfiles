@@ -1,19 +1,35 @@
 [init]
-  templateDir = ~/.git-init-template
+	templateDir = ~/.git-init-template
 [plugins]
-  composer = false
-  npm = false
-  spellchecker = true
+	composer = false
+	npm = false
+	spellchecker = true
 [core]
-  excludesfile = ~/.gitignore-global
-  editor = vim
+	excludesfile = ~/.gitignore-global
+	editor = nvim
+	; https://github.com/so-fancy/diff-so-fancy
+	pager = diff-so-fancy | less --tabs=4 -XRF
 [merge]
-  ff = only
+	ff = only
 [push]
-  default = upstream
+	default = upstream
 [fetch]
-  prune = true
+	prune = true
 [user]
-  name = Inernet User
-  email = street@number.home
-  signingkey = cya
+	name = Inernet User
+	email = street@number.home
+	signingkey = cya
+[color "diff"]
+	new = green bold
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color]
+	ui = true

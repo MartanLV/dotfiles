@@ -4,6 +4,7 @@
 # * tab key terminal keybinding is ^I
 #__
 
+setopt share_history
 alias vim='nvim'
 
 # zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install # are for word&tab completions
