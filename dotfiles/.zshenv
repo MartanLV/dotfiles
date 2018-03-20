@@ -14,4 +14,3 @@ export PATH
 # ziish goes there
 export ZDOTDIR=$HOME/.zsh
 
-export ZPLUG_HOME=$ZDOTDIR/.zplug
