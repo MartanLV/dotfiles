@@ -26,6 +26,8 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias e='exit'
+# brew install glances
+alias top='glances'
 alias rmf='rm -rf'
 
 #
