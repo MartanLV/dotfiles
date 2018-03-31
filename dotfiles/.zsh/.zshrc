@@ -6,16 +6,33 @@
 # * tab key terminal keybinding is ^I
 #__
 
-function fapreview() {
-        echo $1
-        echo $2
-        return "3asd2"
+# [f]uzzy [kill] match and kill a process(es)
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
 }
+
 # [f]uzzy [a]rtisan function
-fa() {
-        local acmds=$(php artisan list --raw | fzf --preview='{}')
+function fa() {
+	# foce ansi as that program detect's we are not writing into TTY
+        local _fapreview="php artisan help {1} --ansi"
+	# painting some ansi by hand as the raw flag gives pure list
+        local alist=$(a list --raw | sed -El "s/^([a-z,:,-]+)/$(tput setaf 2)\1$(tput sgr0)/")
+	# left wrapped preview
+        local acmds=$(echo -n $alist | fzf --ansi --preview=$_fapreview --preview-window left:wrap)
+	# if not canceled	
         if [[ $acmds ]]; then
-                echo $acmds + "3333"
+		# strip the command signature part
+                local acmd=$(echo $acmds | sed 's/ .*//')
+		# also print the help again
+                php artisan help $acmd
+		# writes it out for ya
+                print -z "php artisan $acmd"
         fi
 }
 

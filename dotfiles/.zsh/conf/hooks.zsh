@@ -1,7 +1,7 @@
 # 
 ## Maesure command execution time (approx)
 #
-# will report if longer than 0.5 seconds
+# will report if longer than 1.5 seconds
 # by setting human readable string
 # as a window and tab title
 typeset -F SECONDS
@@ -37,8 +37,8 @@ function report-start-time() {
     print -Pn "\e]0;$ELAPSED:q\a" 
   fi
 }
-add-zsh-hook preexec record-start-time
-add-zsh-hook precmd report-start-time
+# add-zsh-hook preexec record-start-time
+# add-zsh-hook precmd report-start-time
 # -----------------------------------------------
 # -----------------------------------------------
 

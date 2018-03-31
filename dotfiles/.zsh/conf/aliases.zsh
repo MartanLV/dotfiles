@@ -19,6 +19,8 @@ alias .z!="vim $ZDOTDIR/.zshrc"
 alias .zenv!="vim $HOME/.zshenv"
 alias ls="ls -GFh"
 alias l="ls -la"
+# brew install exa
+alias la="exa -abghl --git --color=automatic"
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
