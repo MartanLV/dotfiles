@@ -1,31 +1,38 @@
-"use strict";
-exports.__esModule = true;
-exports.activate = function (oni) {
-    console.log("config activated");
-    // Input
-    //
-    // Add input bindings here:
-    //
-    oni.input.bind("<c-enter>", function () { return console.log("Control+Enter was pressed"); });
-    //
-    // Or remove the default bindings here by uncommenting the below line:
-    //
-    // oni.input.unbind("<c-p>")
+const activate = (oni) => {
+	const { editors, input, menu } = oni
+
+	input.unbindAll()
+
+	const isVisualMode = () => editors.activeEditor.mode === "visual"
+	const isNormalMode = () => editors.activeEditor.mode === "normal"
+	const isNotInsertMode = () => editors.activeEditor.mode !== "insert"
+	const isInsertOrCommandMode = () =>
+		editors.activeEditor.mode === "insert" || editors.activeEditor.mode === "cmdline_normal"
+
+	const isMenuOpen = () => menu.isMenuOpen()
+
+	input.bind("<m-c>", "oni.editor.clipboard.yank", isVisualMode)
+	input.bind("<m-v>", "oni.editor.clipboard.paste", isInsertOrCommandMode)
+
+	input.bind("<m-,>", "oni.config.openConfigJs", isNormalMode);
+	input.bind("<m-.>", "oni.config.openInitVim", isNormalMode);
 };
-exports.deactivate = function (oni) {
-    console.log("config deactivated");
-};
-exports.configuration = {
-    //add custom config here, such as
-    "ui.colorscheme": "nord",
-    // "tabs.mode": "buffers",
-    // "oni.useDefaultConfig": true,
-    //"oni.bookmarks": ["~/Documents"],
-    //"oni.loadInitVim": false,
-    "editor.fontSize": "14px",
-    // "editor.fontFamily": "Monaco",
-    "commandline.mode": true,
-    // UI customizations
-    "ui.animations.enabled": true,
-    "ui.fontSmoothing": "auto"
-};
+
+module.exports = {
+        "autoClosingPairs.enabled": true,
+    "autoClosingPairs.default": [
+        { open: "{", close: "}" },
+        { open: "[", close: "]" },
+        { open: "(", close: ")" },
+    ],
+    "tabs.showIndex": true,
+    
+	"oni.useDefaultConfig": true,
+    "ui.fontSmoothing": "subpixel-antialiased",
+    "ui.animations.enabled": false,
+    "tabs.mode": "buffers",
+	"oni.loadInitVim": !true,
+	"editor.fontSize": "12px",
+	"editor.fontFamily": "Monaco",
+	"editor.completions.enabled": true
+}

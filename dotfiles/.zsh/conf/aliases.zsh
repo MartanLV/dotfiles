@@ -16,13 +16,13 @@ alias 3='cd -3'
 alias 4='cd -4'
 alias .z="source $ZDOTDIR/.zshrc"
 alias .z!="vim $ZDOTDIR/.zshrc"
+alias .zenv!="vim $HOME/.zshenv"
 alias ls="ls -GFh"
 alias l="ls -la"
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-alias c='composer'
 alias e='exit'
 alias rmf='rm -rf'
 
@@ -40,3 +40,10 @@ alias -g H="|head" # Mnemonic: "[H]ead"
 # Pretty-print JSON.
 alias -g J="|python -m json.tool" # Mnemonic: "[J]SON"
 alias -g L="|less" # Mnemonic: "[L]ess"
+
+#
+## LARAVEL PHP NODE GO etc
+#
+alias a='php artisan'
+alias c='composer'
+

@@ -1,8 +1,8 @@
-bindkey -v # vi-mode
-# in command mode "v" wil bring up the editor
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+# bindkey -v # vi-mode
+# # in command mode "v" wil bring up the editor
+# autoload -z edit-command-line
+# zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
 
 bindkey '^ ' autosuggest-accept
 bindkey '^A' autosuggest-execute
