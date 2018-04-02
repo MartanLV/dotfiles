@@ -13,7 +13,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 " Job control
+" Execute :PythonSupportInitPython2 and :PythonSupportInitPython3 after you have installed this plugin.
+" Plug 'roxma/python-support.nvim' " automatically sets up python stuff
 " Plug 'neomake/neomake'
+" :let &hlsearch=1 | echo 
+" 
 
 "Pope
 Plug 'tpope/vim-surround'
@@ -23,10 +27,11 @@ Plug 'tpope/vim-commentary'
 " Php
 Plug 'alvan/vim-php-manual' " shows beautiful php.net doc in help window
 Plug 'fenetikm/phpfolding.vim' "php folding
-Plug 'autozimu/LanguageClient-neovim', {
-                        \ 'branch': 'next',
-                        \ 'do': 'bash install.sh',}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" completion php
+Plug 'roxma/nvim-completion-manager'
+Plug 'phpactor/phpactor' ,  {'do': 'composer install'}
+Plug 'roxma/ncm-phpactor'
+
 Plug 'mattn/emmet-vim'
 "
 " Search, Fuzzy Finding
@@ -98,6 +103,7 @@ map <c-s> <esc>:w<cr>:Silent php-cs-fixer fix %:p --level=symfony<cr>
 
 nnoremap <s-tab> zMza
 
+let g:phpactorPhpBin = "/usr/local/bin/php"
 let g:deoplete#enable_at_startup = 1
 
 "}}}
@@ -213,3 +219,4 @@ nnoremap Q <nop>
 
 " }}}
 
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
