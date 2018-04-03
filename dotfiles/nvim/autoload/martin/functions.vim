@@ -1,4 +1,3 @@
-
 function! martin#functions#substitute(pattern, replacement, flags) abort
   let l:number=1
   for l:line in getline(1, '$')

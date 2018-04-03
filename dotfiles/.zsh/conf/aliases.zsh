@@ -4,8 +4,10 @@
 alias g='git'
 alias gco='git checkout'
 alias gc='git commit'
+alias gr='git remote'
 alias gst='git status'
 alias gp='git push'
+alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 #
 ## SYSTEM
@@ -20,12 +22,14 @@ alias .zenv!="vim $HOME/.zshenv"
 alias ls="ls -GFh"
 alias l="ls -la"
 # brew install exa
-alias la="exa -abghl --git --color=automatic"
+alias la="exa --all --binary --group --header --long --git --color=automatic"
+alias lst="exa --long --tree --all"
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias e='exit'
+alias :q='exit'
 # brew install glances
 alias top='glances'
 alias rmf='rm -rf'

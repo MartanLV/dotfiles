@@ -1,62 +1,18 @@
 " vim: set fdm=marker fmr={{{,}}} fdl=0 :
-
 scriptencoding utf-8
 
-" << PLUGINS >> {{{
+" minpac {{{
+command! PackUpdate packadd minpac | source $MYVIMRC | redraw! | call minpac#update()
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-                                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd!
-        autocmd VimEnter * PlugInstall
+if !isdirectory($HOME . '/.config/nvim/pack/minpac/opt')
+  echohl String | echo "Installing that minpac for ya" | echohl None
+  !mkdir -p ~/.config/nvim/pack/minpac/opt && git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac
+  echohl String | echo ":PackUpdate run please" | echohl None
 endif
 
-call plug#begin('~/.config/nvim/plugged')
-" Job control
-" Execute :PythonSupportInitPython2 and :PythonSupportInitPython3 after you have installed this plugin.
-" Plug 'roxma/python-support.nvim' " automatically sets up python stuff
-" Plug 'neomake/neomake'
-" :let &hlsearch=1 | echo 
-" 
-
-"Pope
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-
-" Php
-Plug 'alvan/vim-php-manual' " shows beautiful php.net doc in help window
-Plug 'fenetikm/phpfolding.vim' "php folding
-" completion php
-Plug 'roxma/nvim-completion-manager'
-Plug 'phpactor/phpactor' ,  {'do': 'composer install'}
-Plug 'roxma/ncm-phpactor'
-
-Plug 'mattn/emmet-vim'
-"
-" Search, Fuzzy Finding
-Plug 'junegunn/fzf' "or refer a sys binary here
-Plug 'junegunn/fzf.vim' "fuzzy finder stuff
-Plug 'wincent/loupe' "nicer search highlighting
-Plug 'wincent/ferret' " within files search
-
-"  End Search, Fuzzy Finding
-" Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/goyo.vim' "distraction free mode
-Plug 'vim-airline/vim-airline' "tabline, statusline
-Plug 'vim-airline/vim-airline-themes' "deus theme s there too
-"syntax themes
-Plug 'ajmwagar/vim-deus'
-Plug 'mhartington/oceanic-next'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dikiaap/minimalist'
-Plug 'junegunn/seoul256.vim'
-Plug 'w0rp/ale' " syntax checker
-"
-call plug#end()
-"
+packadd minpac
+source ~/.config/nvim/packages.vim
 " }}}
 " Emmet customization {{{
 
@@ -89,26 +45,9 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss EmmetInstall
 
 "}}}
-" ALOT {{{
-
-" Remember cursor pos and folds across sessions
-autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ 	exe "normal! g'\"" |
-        \ endif
-autocmd BufRead * normal zz
-
-command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
-map <c-s> <esc>:w<cr>:Silent php-cs-fixer fix %:p --level=symfony<cr>
-
-nnoremap <s-tab> zMza
-
-let g:phpactorPhpBin = "/usr/local/bin/php"
-let g:deoplete#enable_at_startup = 1
-
-"}}}
 " General Options: {{{
 
+set autochdir
 let g:netrw_home=$HOME.'/.cache'
 let mapleader="\<Space>"
 let maplocalleader = "\\"
@@ -122,7 +61,6 @@ set scrolloff=5
 set sidescrolloff=5
 set clipboard=unnamed
 set nowrap
-set termguicolors
 set noswapfile "vim will never chash on you
 let g:python3_host_prog = '/usr/local/bin/python3' " set python3 host program location
 set virtualedit=block " allow cursor to move where there is no text in visual block mode
@@ -134,8 +72,9 @@ set synmaxcol=200 "don't bother syntax highlighting long lines
 "}}}
 " Design, theming {{{
 
+set termguicolors
 " almost default but using horizonal cursor instead of block
-set guicursor=n-v-c-sm:hor20,i-ci-ve:ver25,r-cr-o:hor20
+set guicursor=n-v-c-sm:hor20,i-ci-ve:ver25,r-cr-o:block
 " http://xahlee.info/comp/unicode_drawing_shapes.html
 set list " display unprintable characters
 set listchars=nbsp:⦸, " hazard character  
@@ -146,18 +85,24 @@ set listchars+=space:⋅, " U+22C5 dot operator
 set listchars+=trail:• " bullet (U+2022, UTF-8: E2 80 A2)
 set listchars+=eol:¬
 
-" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:✗,space:·
+set fillchars+=fold:┄
 
 syntax on
 colorscheme deus
+
+set cursorcolumn
+set cursorline
+
+" no intro window for professionals
+set shortmess+=I
 
 " }}}
 " Leader Maps {{{
 
 " edit vimrc in vertical split
-nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " source vimrc
-nnoremap <leader>sv :so ~/.config/nvim/init.vim<cr>
+nnoremap <leader>sv :so $MYVIMRC<cr>
 " distraction free mode toggle
 nnoremap <leader>G :Goyo<cr>
 " FZF most recent commands
@@ -209,14 +154,32 @@ nnoremap Y y$
 " creates a markers when performing jumps larger than 5 (use <c-o> to move jumplist)
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
-" cheap move across splits
-nnoremap <c-l> <c-w>l
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
+" cheap move across splits (alt+<hjkl>) set left alt to be esc+ at iterm2 profile keys
+nnoremap <a-l> <c-w>l
+nnoremap <a-k> <c-w>k
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
 " it's an ex mode hotkey
 nnoremap Q <nop>
 
 " }}}
+" Terminal Mappings {{{
+"
+" cheap move across splits support
+tnoremap <a-h> <c-\><c-n><c-w><c-h>
+tnoremap <a-j> <c-\><c-n><c-w><c-j>
+tnoremap <a-k> <c-\><c-n><c-w><c-k>
+tnoremap <a-l> <c-\><c-n><c-w><c-l>
+tnoremap <space> <cr>
+"
+" }}}
+
+let g:phpactorPhpBin = "/usr/local/bin/php"
+
+" augroup remember_folds
+"   autocmd!
+"   autocmd BufWinLeave * mkview
+"   autocmd BufWinEnter * silent! loadview
+" augroup END
 
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
