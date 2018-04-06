@@ -47,7 +47,7 @@ alias vim='nvim'
 eval "$(fasd --init env zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)" 
 unalias a
 # open in vim
-alias v='f -e vim'
+alias v='f -e nvim'
 
 # source all the things {{{
 source ~/.zsh/conf/aliases.zsh 

@@ -90,7 +90,6 @@ set fillchars+=fold:┄
 syntax on
 colorscheme deus
 
-set cursorcolumn
 set cursorline
 
 " no intro window for professionals
@@ -109,8 +108,10 @@ nnoremap <leader>G :Goyo<cr>
 nnoremap <leader>c :call fzf#vim#command_history()<cr>
 " FZF most recently used files with mini preview
 nnoremap <leader>u :call fzf#vim#history(fzf#vim#with_preview('right'))<cr>
+" FZF git files list + untracked
+nnoremap <leader>f :GFiles --others<cr>
 " FZF cwd files list
-nnoremap <leader>f :Files<cr>
+nnoremap <leader>F :Files<cr>
 " FZF buffer list
 nnoremap <leader>b :Buffers<cr>
 " FZF all commands list
@@ -122,7 +123,7 @@ nnoremap <leader><leader> <c-^>
 " save and exit buffer
 nnoremap <leader>x :xit<cr>
 " quit buffer (buffer-delete)
-nnoremap <leader>q :bd<cr>
+nnoremap <leader> <silent> q :bd<cr>
 " write buffer
 nnoremap <leader>w :write<cr>
 " focus current window only, hide others
@@ -161,6 +162,8 @@ nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 " it's an ex mode hotkey
 nnoremap Q <nop>
+" jump to bottom and center for me
+nnoremap G Gzz
 
 " }}}
 " Terminal Mappings {{{
@@ -182,4 +185,74 @@ let g:phpactorPhpBin = "/usr/local/bin/php"
 "   autocmd BufWinEnter * silent! loadview
 " augroup END
 
+packadd nvim-completion-manager
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+
+
+" " -------- Vdebug ---------
+" let g:vdebug_options={
+"       \   'debug_file': '~/vdebug.log',
+"       \   'debug_file_level': 0,
+"       \   'watch_window_style': 'compact',
+"       \   'marker_default': '⬦',
+"       \   'continuous_mode': 1,
+"       \   'ide_key': '',
+"       \   'break_on_open': 0,
+"       \   'window_commands': {
+"       \     'DebuggerStack': 'belowright new',
+"       \     'DebuggerWatch': 'vertical belowright new',
+"       \     'DebuggerStatus': 'belowright new'
+"       \   },
+"       \   'on_close': 'stop',
+"       \   'path_maps': {},
+"       \   'auto_start': 1,
+"       \   'window_arrangement': ['DebuggerWatch', 'DebuggerStack', 'DebuggerStatus'],
+"       \   'marker_closed_tree': '▸',
+"       \   'background_listener': 1,
+"       \   'timeout': 20,
+"       \   'port': 9000,
+"       \   'marker_open_tree': '▾',
+"       \   'debug_window_level': 0,
+"       \   'server': ''
+"       \ }
+
+" command! RunDebugger packadd vdebug | VdebugStart
+
+" :help VdebugCommands
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_sign_column_always = 1
+
+let g:lightline = {}
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component = {
+\  	'lineinfo': ' %3l:%-2v',
+\ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+
