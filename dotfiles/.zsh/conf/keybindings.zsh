@@ -10,8 +10,8 @@ bindkey '^A' autosuggest-execute
 bindkey '°' autosuggest-execute
 
 # Up and down arrow keys
-bindkey "^[[A" history-beginning-search-forward
-bindkey "^[[B" history-beginning-search-backward 
+# bindkey "^[[A" history-beginning-search-forward
+# bindkey "^[[B" history-beginning-search-backward 
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
 # These are the same but permit patterns (eg. a*b) to be used.

@@ -1,6 +1,10 @@
 " vim: set fdm=marker fmr={{{,}}} fdl=0 :
 scriptencoding utf-8
 
+augroup dotfilesdetect
+  au BufNewFile,BufRead * if expand("%:p") =~# $DOTFILES | call martin#dotfile#init() | endif
+augroup END
+
 " minpac {{{
 command! PackUpdate packadd minpac | source $MYVIMRC | redraw! | call minpac#update()
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
@@ -47,6 +51,17 @@ autocmd FileType html,css,scss EmmetInstall
 "}}}
 " General Options: {{{
 
+" tab stuff
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+set shiftwidth=4
+set autoindent
+set smartindent
+" --
+set completeopt=longest,menuone
+set shortmess+=c
 set autochdir
 let g:netrw_home=$HOME.'/.cache'
 let mapleader="\<Space>"
@@ -68,6 +83,7 @@ set lazyredraw " don't bother updating screen during macro playback
 set foldtext=martin#settings#foldtext() "overrides default fold design
 set inccommand=nosplit "auto preview for stuff like :%s/re/place/
 set synmaxcol=200 "don't bother syntax highlighting long lines
+set noshowmode " as lightline shows that already
 
 "}}}
 " Design, theming {{{
@@ -108,8 +124,8 @@ nnoremap <leader>G :Goyo<cr>
 nnoremap <leader>c :call fzf#vim#command_history()<cr>
 " FZF most recently used files with mini preview
 nnoremap <leader>u :call fzf#vim#history(fzf#vim#with_preview('right'))<cr>
-" FZF git files list + untracked
-nnoremap <leader>f :GFiles --others<cr>
+" FZF git files list +untracked -gitignored +others
+nnoremap <leader>f :GFiles --others --exclude-standard --cached<cr>
 " FZF cwd files list
 nnoremap <leader>F :Files<cr>
 " FZF buffer list
@@ -120,10 +136,8 @@ nnoremap <leader>C :Commands<cr>
 nnoremap <silent> <leader>, :nohl<cr>
 " go to previously visited buffer
 nnoremap <leader><leader> <c-^>
-" save and exit buffer
-nnoremap <leader>x :xit<cr>
 " quit buffer (buffer-delete)
-nnoremap <leader> <silent> q :bd<cr>
+nnoremap <silent> <leader>q :bd<cr>
 " write buffer
 nnoremap <leader>w :write<cr>
 " focus current window only, hide others
@@ -132,7 +146,7 @@ nnoremap <leader>o :only<cr>
 nnoremap <silent> <leader>zz :call martin#functions#substitute('\s\+$', '', '')<cr>
 " show full file path
 nnoremap <leader>p :echo expand('%')<cr>
-" show full file path
+" TODO yank full file path
 nnoremap <leader>pp :echo expand('%')<cr>
 
 " }}}
@@ -179,14 +193,13 @@ tnoremap <space> <cr>
 
 let g:phpactorPhpBin = "/usr/local/bin/php"
 
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+
 " augroup remember_folds
 "   autocmd!
 "   autocmd BufWinLeave * mkview
 "   autocmd BufWinEnter * silent! loadview
 " augroup END
-
-packadd nvim-completion-manager
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 
 
 " " -------- Vdebug ---------

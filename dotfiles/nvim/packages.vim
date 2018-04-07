@@ -3,10 +3,12 @@ call minpac#init({'verbose': '2'})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('vim-vdebug/vdebug', {'type': 'opt'})
 call minpac#add('lilydjwg/colorizer', {'type': 'opt'})
+
 call minpac#add('wincent/terminus')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-commentary')
+
 call minpac#add('alvan/vim-php-manual', {'type': 'opt'}) " shows beautiful php.net doc in help window
 call minpac#add('fenetikm/phpfolding.vim', {'type': 'opt'}) "php folding
 " completion php

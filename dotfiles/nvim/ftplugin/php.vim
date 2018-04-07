@@ -8,14 +8,13 @@ setlocal smarttab
 setlocal iskeyword+=-
 setlocal iskeyword+=_
 
-packadd phpactor
 packadd nvim-completion-manager
 
 inoremap <buffer> ;; <esc>A;<esc>
 nnoremap <buffer> <leader>u :call phpactor#UseAdd()<cr>
 
 " autocomplete
-" setlocal omnifunc=phpactor#Complete
+setlocal omnifunc=phpactor#Complete
 
 " trim white space on write
 function! TrimWhiteSpace()
@@ -23,4 +22,4 @@ function! TrimWhiteSpace()
 endfunction
 autocmd! BufWritePre *.php :call TrimWhiteSpace()
 
-set tags+=.git/tags,.git/tags.vendors
+" set tags+=.git/tags,.git/tags.vendors
