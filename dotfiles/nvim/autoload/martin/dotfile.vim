@@ -1,14 +1,18 @@
-" TODO this a demo, minpac goto plugin {opt,start}, glob ftplugins, functions
+" TODO minpac goto plugin src {opt,start}, glob ftplugins, functions
 " byteoffset: eval('line2byte(line("."))+col(".")')
+
 function! martin#dotfile#jump()
-  call fzf#run({'source': [
-              \ $DOTFILES . '/dotfiles/nvim/init.vim',
-              \ $DOTFILES . '/dotfiles/.zsh/.zshrc',
-              \ $DOTFILES . '/dotfiles/nvim/packages.vim',
-              \ $DOTFILES . '/dotfiles/nvim/ftplugin/php.vim',
-              \ ],
-            \ 'options': '--ansi --preview="echo \"\e[0;32m{1}\""',
-            \ 'sink': 'e', 'top': '25%'})
+  let roads = globpath($DOTFILES . '/dotfiles/nvim/ftplugin/', '*', 0, 1, 1)
+  let roads += globpath($DOTFILES . '/dotfiles/nvim/', '*', 0, 1, 1)
+  let roads += globpath($DOTFILES . '/dotfiles/nvim/autoload/martin', '*', 0, 1, 1)
+  let roads += globpath($DOTFILES . '/dotfiles/.zsh/', '.[^.]*', 0, 1, 1)
+  let roads += globpath($DOTFILES . '/dotfiles/.zsh/', '*', 0, 1, 1)
+  let roads += globpath($DOTFILES . '/dotfiles/', '.[^.]*', 0, 1, 1)
+
+  let te = {'source': roads,
+        \ 'options': '--ansi --preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"',
+            \ 'sink': 'e', 'top': '25%'}
+  call fzf#run(te)
 endfunction
 
 function! martin#dotfile#init()

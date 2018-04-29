@@ -8,13 +8,13 @@ setlocal smarttab
 setlocal iskeyword+=-
 setlocal iskeyword+=_
 
-packadd nvim-completion-manager
+" packadd nvim-completion-manager
 
 inoremap <buffer> ;; <esc>A;<esc>
-nnoremap <buffer> <leader>u :call phpactor#UseAdd()<cr>
+" nnoremap <buffer> <leader>u :call phpactor#UseAdd()<cr>
 
 " autocomplete
-setlocal omnifunc=phpactor#Complete
+" setlocal omnifunc=phpactor#Complete
 
 " trim white space on write
 function! TrimWhiteSpace()

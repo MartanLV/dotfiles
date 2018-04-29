@@ -68,3 +68,6 @@ source ~/.zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.z
 function zshSpeedTest() {
     for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
 }
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line

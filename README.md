@@ -75,141 +75,36 @@ at: 2018-04-05, or was it? -->
 <!-- NEOVIM {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:sunrise:<b>Neovim</b></summary>
-<b><tt>plugins</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- ZSH {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:city_sunrise:<b>ZSH</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- KARABINER-ELEMENTS {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:milky_way:<b>Karabiner-elements</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- RANGER {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:fireworks:<b>Ranger</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- HAMMERSPOON {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:sparkler:<b>Hammerspoon</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- GIT {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:rice_scene:<b>GIT</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 <!-- DOTBOT {{{ -->
 <details>
 <summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:foggy:<b>Dotbot?</b></summary>
-<b><tt>composer binaries in use that reflects and analyzes code</tt></b>
-<table>
-<td>
-
-![php-logo](https://mrsjenkinscomputerclass.files.wordpress.com/2010/01/bubbleelephant.gif "God is great")
-
-<details>
-<summary>https://github.com/sensiolabs/security-checker</summary>
-
-> to check composer.json for known vulns
-
-- [ ] used at githooks. Hook just checks and reports it allows any action by default
-</details>
-</td>
-</table>
 </details>
 <!-- }}} -->
 

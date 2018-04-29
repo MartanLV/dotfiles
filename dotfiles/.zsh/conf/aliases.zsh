@@ -3,6 +3,11 @@
 #
 alias g='git'
 alias gco='git checkout'
+alias gd="git diff"
+alias ga="git add"
+alias gm="git merge"
+alias gaa="git add --all"
+alias gds="git diff --staged"
 alias gc='git commit'
 alias gr='git remote'
 alias gst='git status'
@@ -21,7 +26,7 @@ alias .z!="vim $DOTFILES/dotfiles/.zsh/.zshrc"
 alias .zenv!="vim $HOME/.zshenv"
 alias ls="ls -GFh"
 alias l="ls -la"
-# brew install exa
+# @DOTBOT:BREW(exa)
 alias la="exa --all --binary --group --header --long --git --color=automatic"
 alias lst="exa --long --tree --all"
 alias -g ...='../..'
@@ -30,7 +35,7 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias e='exit'
 alias :q='exit'
-# brew install glances
+# @DOTBOT:BREW(glances)
 alias top='glances'
 alias rmf='rm -rf'
 

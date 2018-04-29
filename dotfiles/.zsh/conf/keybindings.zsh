@@ -1,13 +1,13 @@
-# bindkey -v # vi-mode
+bindkey -e # emacs-mode
 # # in command mode "v" wil bring up the editor
 # autoload -z edit-command-line
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
 
-bindkey '^ ' autosuggest-accept
-bindkey '^A' autosuggest-execute
+# bindkey '^ ' autosuggest-accept
+# bindkey '^A' autosuggest-execute
 # alt + §
-bindkey '°' autosuggest-execute
+# bindkey '°' autosuggest-execute
 
 # Up and down arrow keys
 # bindkey "^[[A" history-beginning-search-forward
@@ -15,8 +15,8 @@ bindkey '°' autosuggest-execute
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
 # These are the same but permit patterns (eg. a*b) to be used.
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
+# bindkey "^r" history-incremental-pattern-search-backward
+# bindkey "^s" history-incremental-pattern-search-forward
 
 # bindkey '^R' zaw-history
 # bindkey -M vicmd "^[OP" autosuggest-execute

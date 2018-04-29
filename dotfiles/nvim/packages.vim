@@ -1,5 +1,8 @@
 call minpac#init({'verbose': '2'})
 
+call minpac#add('sjl/gundo.vim')
+call minpac#add('tpope/vim-fugitive')
+
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('vim-vdebug/vdebug', {'type': 'opt'})
 call minpac#add('lilydjwg/colorizer', {'type': 'opt'})
@@ -12,12 +15,17 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('alvan/vim-php-manual', {'type': 'opt'}) " shows beautiful php.net doc in help window
 call minpac#add('fenetikm/phpfolding.vim', {'type': 'opt'}) "php folding
 " completion php
-call minpac#add('roxma/nvim-completion-manager', {'type': 'opt'})
-call minpac#add('phpactor/phpactor' ,  {'type':'opt', 'do': '!composer install --no-progress --no-suggest'})
-call minpac#add('roxma/ncm-phpactor', {'type': 'opt'})
+
+" call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('roxma/nvim-completion-manager')
+call minpac#add('phpactor/phpactor')
+" call minpac#add('roxma/ncm-phpactor')
+" call minpac#add('roxma/LanguageServer-php-neovim',  {'do': '!composer install && composer run-script parse-stubs'})
+
 call minpac#add('mattn/emmet-vim', {'type': 'opt'})
+
 " snippet manager
-call minpac#add('Shougo/deoppet.nvim', {'do': ':UpdateRemotePlugins'})
+call minpac#add('SirVer/ultisnips')
 "
 " Search, Fuzzy Finding
 call minpac#add('junegunn/fzf') "or refer a sys binary here
@@ -41,3 +49,8 @@ call minpac#add('junegunn/seoul256.vim')
 call minpac#add('w0rp/ale') " syntax checker
 call minpac#add('maximbaz/lightline-ale') " syntax checker
 
+call minpac#add('fmoralesc/vim-pad')
+
+" <c-_>
+call minpac#add('tpope/vim-rsi')
+call minpac#add('jiangmiao/auto-pairs')

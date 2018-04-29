@@ -1,4 +1,5 @@
 " vim: set fdm=marker fmr={{{,}}} fdl=0 :
+
 scriptencoding utf-8
 
 augroup dotfilesdetect
@@ -88,6 +89,10 @@ set noshowmode " as lightline shows that already
 "}}}
 " Design, theming {{{
 
+let g:phpactorPhpBin = 'php'
+let g:phpactorBranch = 'develop'
+let g:phpactorOmniError = v:false
+
 set termguicolors
 " almost default but using horizonal cursor instead of block
 set guicursor=n-v-c-sm:hor20,i-ci-ve:ver25,r-cr-o:block
@@ -132,8 +137,8 @@ nnoremap <leader>F :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 " FZF all commands list
 nnoremap <leader>C :Commands<cr>
-" remove highlight
-nnoremap <silent> <leader>, :nohl<cr>
+" remove highlight AND close preview window
+nnoremap <silent> <leader>, :nohl<cr>:pclose<cr>
 " go to previously visited buffer
 nnoremap <leader><leader> <c-^>
 " quit buffer (buffer-delete)
@@ -247,7 +252,7 @@ let g:lightline.component_expand = {
       \ }
 
 let g:lightline.component = {
-\  	'lineinfo': ' %3l:%-2v',
+\  	'lineinfo': '%3l:%-2v',
 \ }
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
@@ -269,3 +274,27 @@ let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
 
+let g:pad#dir="~/notes"
+let g:pad#default_format = "markdown"
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsSnippetsDir = $HOME."/.config/UltiSnips"
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME.'/.config/UltiSnips']
+let g:UltiSnipsEnableSnipMate = 0
+
+let g:deoplete#enable_at_startup = 1
+
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:UltiSnipsEditSplit='vertical'
+
+function! EditFtPluginFile()
+    exec ":e ~/.config/nvim/ftplugin/".expand('%:e').".vim"
+  endfunction
+nnoremap <F12> :call EditFtPluginFile()<cr>
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

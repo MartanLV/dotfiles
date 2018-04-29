@@ -16,3 +16,4 @@ export PATH
 export ZDOTDIR=$HOME/.zsh
 export DOTFILES=$HOME/DOTFILES
 
+export EDITOR=nvim
