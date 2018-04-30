@@ -1,0 +1,12 @@
+vc| PlainTextMode() # plain text mode
+vc| ClearRegisters() # clear all registers
+vc| RemoveFancyCharacters() # remove fancy characters like magic quotes
+vc| EditFtPluginFile() # edit current filetype plugin file
+vc| ToggleCenteredCursor() # toggle centered cursorline
+vc| Goyo() # distraction free mode
+vc| ReindentWholeFileAndTabsToSpaces() # tabs to spaces and reindent
+vc| TrimWhiteSpace() # trim trailing whitespace
+vc| SearchWordWithAg() # search word under cursor
+vc| RenameFile() # rename current file
+  | set nowrap! # toggle line wrap
+  | GundoToggle # undo tree toggle

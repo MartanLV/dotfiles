@@ -36,10 +36,6 @@ function fa() {
     fi
 }
 
-# TODO {{{
-# https://github.com/zsh-users/zaw
-# }}}
-
 setopt share_history
 alias vim='nvim'
 
@@ -63,6 +59,7 @@ export MANPAGER="col -b | vim -MR -c 'set ft=man' - "
 # source ~/.zsh/plugins/iterm2.zsh
 source ~/.zsh/plugins/autosuggestions.zsh
 source ~/.zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.zsh/plugins/zaw/zaw.zsh
 
 # startup time test snippet:
 function zshSpeedTest() {
@@ -71,3 +68,4 @@ function zshSpeedTest() {
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+bindkey "^X^A" zaw-applications
