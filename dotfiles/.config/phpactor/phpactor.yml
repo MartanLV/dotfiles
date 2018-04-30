@@ -1,0 +1,3 @@
+xdebug_disable: true
+logging.enabled: true
+logging.path: "~/.cache/phpactor.log"

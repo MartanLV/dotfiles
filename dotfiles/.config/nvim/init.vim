@@ -34,10 +34,10 @@ scriptencoding utf-8
 ""}}}
 
 packadd minpac
-so ./packages.vim
-so ./settings.vim
-so ./functions.vim
-so ./mappings.vim
+so ~/.config/nvim/packages.vim
+so ~/.config/nvim/settings.vim
+so ~/.config/nvim/functions.vim
+so ~/.config/nvim/mappings.vim
 
 " Make sure Vim returns to the same line when you reopen a file.
 autocmd BufReadPost *
@@ -134,5 +134,3 @@ let g:UltiSnipsEditSplit='vertical'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"Pull in from *.mcmd files from current directory and home nvim config directory.
-" command! -bang -nargs=* MyCommands call fzf#run({'sink': function('<sid>ProcessMyCommand'), 'source': 'cat '.$HOME.'/.config/nvim/*.mcmd *.mcmd 2>/dev/null'})

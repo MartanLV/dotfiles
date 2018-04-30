@@ -10,15 +10,17 @@ DOTREPO=$HOME/DOTFILES
 #         fi
 # }
 
-ln -s $DOTREPO/dotfiles/.git-init-template $HOME/.git-init-template
+ln -s $DOTREPO/dotfiles/.git-init-template $HOME
 ln -s $DOTREPO/dotfiles/.gitconfig $HOME/.gitconfig
 ln -s $DOTREPO/dotfiles/.gitignore-global $HOME/.gitignore-global
-ln -s $DOTREPO/dotfiles/.hammerspoon $HOME/.hammerspoon
-ln -s $DOTREPO/dotfiles/.zsh $HOME/.zsh
+ln -s $DOTREPO/dotfiles/.hammerspoon $HOME
+ln -s $DOTREPO/dotfiles/.zsh $HOME
 ln -s $DOTREPO/dotfiles/.zshenv $HOME/.zshenv
 
 mkdir -p $HOME/.config
-ln -s $DOTREPO/dotfiles/nvim $HOME/.config
+
+ln -s $DOTREPO/dotfiles/.config/nvim $HOME/.config
+ln -s $DOTREPO/dotfiles/.config/ranger $HOME/.config
 
 #
 # GIT
