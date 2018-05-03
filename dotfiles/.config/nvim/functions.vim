@@ -63,24 +63,25 @@ endfunction
 
 " insp https://github.com/fenetikm/dotfiles/tree/master/.config/nvim
 function! ProcessMyCommand(l)
-    let keys = split(a:l, ':\t')
-    let command_parts = split(keys[0], '|')
-    let command_function = split(command_parts[1], '#')
+  let keys = split(a:l, ':\t')
+  let command_parts = split(keys[0], '|')
+  let command_function = split(command_parts[1], '#')
 
-    if command_parts[0] == 'vc'
-        "vim call
-        execute 'call '.command_function[0]
-    elseif command_parts[0] == 'op'
-        " open
-        execute '!open -g '.command_function[0]
-    else
-        "just do whatever it says
-        execute command_function[0]
-    endif
+  if command_parts[0] == 'vc'
+    "vim call
+    execute 'call '.command_function[0]
+  elseif command_parts[0] == 'op'
+    " open
+    execute '!open -g '.command_function[0]
+  else
+    "just do whatever it says
+    execute command_function[0]
+  endif
 endfunction
 
-function ListMyCommands() abort
+function! ListMyCommands() abort
   :call fzf#run({
+        \'up': '40%',
         \'sink': function('ProcessMyCommand'),
         \'source': 'cat '.$HOME.'/.config/nvim/*.mcmd 2>/dev/null'
         \})

@@ -10,3 +10,9 @@ vc| SearchWordWithAg() # search word under cursor
 vc| RenameFile() # rename current file
   | set nowrap! # toggle line wrap
   | GundoToggle # undo tree toggle
+  | vsplit ~/.config/nvim/all.mcmd # edit my commands file
+  | vsplit ~/.config/nvim/packages.vim # edit my packages file
+  | vsplit ~/.config/nvim/mappings.vim # edit my mappings file
+  | vsplit ~/.config/nvim/settings.vim # edit my settings file
+  | vsplit ~/.config/nvim/functions.vim # edit my functions file
+  | vsplit ~/.config/nvim/init.vim # edit my init file

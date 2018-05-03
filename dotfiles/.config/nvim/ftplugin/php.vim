@@ -12,14 +12,4 @@ setlocal iskeyword+=_
 
 inoremap <buffer> ;; <esc>A;<esc>
 " nnoremap <buffer> <leader>u :call phpactor#UseAdd()<cr>
-
-" autocomplete
-" setlocal omnifunc=phpactor#Complete
-
-" trim white space on write
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
-autocmd! BufWritePre *.php :call TrimWhiteSpace()
-
 " set tags+=.git/tags,.git/tags.vendors

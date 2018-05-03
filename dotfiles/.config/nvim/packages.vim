@@ -14,6 +14,16 @@ endif
 call minpac#init({'verbose': '2'})
 
 call minpac#add('sjl/gundo.vim')
+
+" completion
+call minpac#add('Shougo/deoplete.nvim')
+" vim completion source @dotbot#composer('phpactor/phpactor')
+call minpac#add('Shougo/neco-vim')
+" php completion source
+call minpac#add('talbergs/deoplete-phpactor')
+" python completion source @dotbot#pip('jedi')
+call minpac#add('zchee/deoplete-jedi')
+
 call minpac#add('tpope/vim-fugitive')
 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -29,14 +39,6 @@ call minpac#add('tpope/vim-commentary')
 
 call minpac#add('alvan/vim-php-manual', {'type': 'opt'}) " shows beautiful php.net doc in help window
 call minpac#add('fenetikm/phpfolding.vim', {'type': 'opt'}) "php folding
-
-" completion php
-
-" call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('roxma/nvim-completion-manager')
-call minpac#add('phpactor/phpactor')
-" call minpac#add('roxma/ncm-phpactor')
-" call minpac#add('roxma/LanguageServer-php-neovim',  {'do': '!composer install && composer run-script parse-stubs'})
 
 call minpac#add('mattn/emmet-vim', {'type': 'opt'})
 

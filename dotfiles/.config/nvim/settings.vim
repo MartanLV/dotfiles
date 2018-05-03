@@ -11,30 +11,30 @@ set shiftwidth=4
 set autoindent
 set smartindent
 " --
-set completeopt=longest,menuone
-set shortmess+=c
+set completeopt=menu,noinsert,noselect,longest,menuone,preview
+set splitbelow " if completion provides preview/info window do it at bottom
+set previewheight=60 " max height of preview window
 set autochdir
 let g:netrw_home=$HOME.'/.cache'
 let mapleader="\<Space>"
 let maplocalleader = "\\"
 set expandtab "always use spaces instead of tabs
-set mouse=a "ckicl
+set mouse=a "ckicl always all modes srcoll
 set number "show line numbers
 set relativenumber "set to relative number mode
-set helpheight=40 ""
 set hidden "Required for operations modifying multiple buffers like rename.
 set scrolloff=5
 set sidescrolloff=5
 set clipboard=unnamed
 set nowrap
-set noswapfile "vim will never chash on you
+set noswapfile "since vim will never chash on you..
 let g:python3_host_prog = '/usr/local/bin/python3' " set python3 host program location
 set virtualedit=block " allow cursor to move where there is no text in visual block mode
 set lazyredraw " don't bother updating screen during macro playback
 set foldtext=CustomFoldText()
 set inccommand=nosplit "auto preview for stuff like :%s/re/place/
 set synmaxcol=200 "don't bother syntax highlighting long lines
-set noshowmode " as lightline shows that already
+set noshowmode " cos lightline shows that already
 
 "}}}
 " Design, theming {{{
@@ -66,8 +66,9 @@ set guioptions-=e  " Don't use GUI tabline
 
 set cursorline
 
-" no intro window for professionals
+" no intro window for professionals (I)
 set shortmess+=I
+set shortmess+=c
 
 " }}}
 
