@@ -14,8 +14,8 @@
 [fetch]
     prune = true
 [user]
-    name = Inernet User
-    email = street@number.home
+	name = Martins Talbergs
+	email = animaacija@gmail.com
     signingkey = cya
 [color "diff"]
     new = green bold

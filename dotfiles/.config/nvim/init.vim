@@ -12,6 +12,7 @@ so ~/.config/nvim/pluginConfig/vdebug.vim
 so ~/.config/nvim/pluginConfig/ale.vim
 so ~/.config/nvim/pluginConfig/lightline.vim
 so ~/.config/nvim/pluginConfig/ultisnips.vim
+so ~/.config/nvim/pluginConfig/nerdtree.vim
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

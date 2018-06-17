@@ -21,6 +21,7 @@ mkdir -p $HOME/.config
 
 ln -s $DOTREPO/dotfiles/.config/nvim $HOME/.config
 ln -s $DOTREPO/dotfiles/.config/ranger $HOME/.config
+ln -s $DOTREPO/dotfiles/.config/phpactor $HOME/.config
 
 #
 # GIT

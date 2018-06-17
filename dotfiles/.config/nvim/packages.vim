@@ -13,14 +13,31 @@ endif
 
 call minpac#init({'verbose': '2'})
 
+" look up the formatters in the packages autoload dir
+" and install misiing binaries like cs-fixer for php
+" add your au command to format on fole write if you want
+call minpac#add('sbdchd/neoformat')
+
+" visual folder structure
+" is crusial on new projects
+call minpac#add('scrooloose/nerdtree')
+
+
+call minpac#add('ekalinin/Dockerfile.vim')
+
+" undo tree and branches viewer
 call minpac#add('sjl/gundo.vim')
 
 " completion
-call minpac#add('Shougo/deoplete.nvim')
+" call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('roxma/nvim-completion-manager')
+call minpac#add('phpactor/phpactor', {'for': 'php', 'do': 'composer install'})
+call minpac#add('phpactor/ncm-phpactor')
+" call minpac#add('talbergs/deoplete-phpactor')
+
 " vim completion source @dotbot#composer('phpactor/phpactor')
 call minpac#add('Shougo/neco-vim')
 " php completion source
-call minpac#add('talbergs/deoplete-phpactor')
 " python completion source @dotbot#pip('jedi')
 call minpac#add('zchee/deoplete-jedi')
 
