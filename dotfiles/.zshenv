@@ -15,5 +15,8 @@ export PATH
 # ziish goes there
 export ZDOTDIR=$HOME/.zsh
 export DOTFILES=$HOME/DOTFILES
+export C=$HOME/.config
+export D=$HOME/DOTFILES
 
 export EDITOR=nvim
+

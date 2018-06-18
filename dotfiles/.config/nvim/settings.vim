@@ -39,10 +39,6 @@ set noshowmode " cos lightline shows that already
 "}}}
 " Design, theming {{{
 
-let g:phpactorPhpBin = 'php'
-let g:phpactorBranch = 'develop'
-let g:phpactorOmniError = v:false
-
 set termguicolors
 " almost default but using horizonal cursor instead of block
 set guicursor=n-v-c-sm:hor20,i-ci-ve:ver25,r-cr-o:block

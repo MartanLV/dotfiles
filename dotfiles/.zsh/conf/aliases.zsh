@@ -37,7 +37,9 @@ alias e='exit'
 alias :q='exit'
 # @DOTBOT:BREW(glances)
 alias top='glances'
+alias htop='glances'
 alias rmf='rm -rf'
+alias mkc='mkcd'
 
 #
 ## DOCKER
@@ -59,4 +61,11 @@ alias -g L="|less" # Mnemonic: "[L]ess"
 #
 alias a='php artisan'
 alias c='composer'
+
+#
+## MISC
+#
+alias r='ranger'
+# open in vim
+alias v='f -e nvim'
 

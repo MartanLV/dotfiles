@@ -24,14 +24,16 @@ nnoremap <leader>C :Commands<cr>
 nnoremap <silent> <leader>, :nohl<cr>:pclose<cr>
 " go to previously visited buffer
 nnoremap <leader><leader> <c-^>
-" quit buffer (buffer-delete)
-nnoremap <silent> <leader>q :bd<cr>
-" write buffer
+" quit 
+nnoremap <silent> <leader>q :q<cr>
+" write
 nnoremap <leader>w :write<cr>
 " focus current window only, hide others
 nnoremap <leader>o :only<cr>
 " show full file path
 nnoremap <leader>p :echo expand('%')<cr>
+" TODO yank relative file path
+nnoremap <leader>pp :echo expand('%')<cr>
 " TODO yank full file path
 nnoremap <leader>pp :echo expand('%')<cr>
 
@@ -60,7 +62,10 @@ nnoremap <a-l> <c-w>l
 nnoremap <a-k> <c-w>k
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
-" it's an ex mode hotkey
+" duplicate line below/above
+nnoremap <a-d> yyp
+nnoremap <a-D> yyP
+" it's an ex mode hotkey, not for me
 nnoremap Q <nop>
 " jump to bottom and center for me
 nnoremap G Gzz
@@ -73,6 +78,11 @@ tnoremap <a-h> <c-\><c-n><c-w><c-h>
 tnoremap <a-j> <c-\><c-n><c-w><c-j>
 tnoremap <a-k> <c-\><c-n><c-w><c-k>
 tnoremap <a-l> <c-\><c-n><c-w><c-l>
+"
+" }}}
+" Function keys F1-42 {{{
+"
+nnoremap <F1> :NERDTreeToggle<cr>
 "
 " }}}
 

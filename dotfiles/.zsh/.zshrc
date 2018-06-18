@@ -42,8 +42,6 @@ alias vim='nvim'
 # zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install # are for word&tab completions
 eval "$(fasd --init env zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 unalias a
-# open in vim
-alias v='f -e nvim'
 
 source ~/.zsh/conf/aliases.zsh
 source ~/.zsh/conf/colors.zsh

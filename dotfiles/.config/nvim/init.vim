@@ -13,22 +13,15 @@ so ~/.config/nvim/pluginConfig/ale.vim
 so ~/.config/nvim/pluginConfig/lightline.vim
 so ~/.config/nvim/pluginConfig/ultisnips.vim
 so ~/.config/nvim/pluginConfig/nerdtree.vim
+so ~/.config/nvim/pluginConfig/phpactor.vim
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" strange how this is not default a behaviour ...
+" this will remember cursor position and scroll across buffer swithces
+au BufLeave * if !&diff | let b:winview = winsaveview() | endif
+au BufEnter * if exists('b:winview') && !&diff | call winrestview(b:winview) | unlet! b:winview | endif
 
-finish
-
-" Make sure Vim returns to the same line when you reopen a file.
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \     execute 'normal! g`"zvzz' |
-    \ endif
-set viminfo^=%
-
-let g:go_fmt_command = "goimports"
-
-let g:pad#dir="~/notes"
-let g:pad#default_format = "markdown"
-
+" this ensures empty new line at the end of file
+" I have a thing .. this may be disabled, by let g:_eof_cr=0
+let g:eof_cr=1 " end of file carrage return
+au BufWritePre * if getline('$') != '' && g:eof_cr | call setline(line('$') + 1, '') | endif
 

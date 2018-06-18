@@ -32,3 +32,7 @@ else
   call setline('4', '') " free line
   normal 4G
 endif
+
+" quck hands, sorry they will expand in strings and comments, they not smart.
+inoremap <buffer> $> $this->;<left>
+
