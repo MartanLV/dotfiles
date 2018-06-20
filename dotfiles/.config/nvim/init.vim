@@ -14,11 +14,22 @@ so ~/.config/nvim/pluginConfig/lightline.vim
 so ~/.config/nvim/pluginConfig/ultisnips.vim
 so ~/.config/nvim/pluginConfig/nerdtree.vim
 so ~/.config/nvim/pluginConfig/phpactor.vim
+so ~/.config/nvim/pluginConfig/startify.vim
 
 " strange how this is not default a behaviour ...
 " this will remember cursor position and scroll across buffer swithces
 au BufLeave * if !&diff | let b:winview = winsaveview() | endif
 au BufEnter * if exists('b:winview') && !&diff | call winrestview(b:winview) | unlet! b:winview | endif
+
+" opens on fresh vim both of them, remove this aucmd, and startify only will
+" show up
+" autocmd VimEnter *
+"       \   if !argc()
+"       \ |   Startify
+"       \ |   NERDTree
+"       \ |   wincmd w
+"       \ | endif
+
 
 " this ensures empty new line at the end of file
 " I have a thing .. this may be disabled, by let g:_eof_cr=0

@@ -10,6 +10,9 @@ setlocal shiftwidth=2
 setlocal foldmethod=indent
 setlocal foldlevel=99
 
+" always spaces, not tabs
+setlocal expandtab
+
 " Program to use for the |K| command.  Environment variables are expanded |:set_env|.
 setlocal keywordprg=:help
 
@@ -19,3 +22,4 @@ setlocal suffixesadd=.vim
 setlocal includeexpr=fnamemodify(substitute(v:fname,'#','/','g'),':h')
 
 setlocal omnifunc=phpactor#Complete
+

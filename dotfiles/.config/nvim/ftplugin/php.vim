@@ -35,4 +35,6 @@ endif
 
 " quck hands, sorry they will expand in strings and comments, they not smart.
 inoremap <buffer> $> $this->;<left>
+" go to definition, then scroll to top
+nnoremap gd :call phpactor#GotoDefinition()<cr>zt
 

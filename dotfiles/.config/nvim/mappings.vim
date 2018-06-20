@@ -2,6 +2,13 @@
 
 " Leader Maps {{{
 
+" quit all, no questions,
+" unsaved buffers will be ditched
+nnoremap <leader>Qqq :qall!<cr>
+" write all, no questions
+nnoremap <leader>WW :wall!<cr>
+" quit all, safely
+nnoremap <leader>QQ :qall<cr>
 " edit vimrc in vertical split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " source vimrc
@@ -26,6 +33,8 @@ nnoremap <silent> <leader>, :nohl<cr>:pclose<cr>
 nnoremap <leader><leader> <c-^>
 " quit 
 nnoremap <silent> <leader>q :q<cr>
+" buffer delete
+nnoremap <silent> <leader>d :bd<cr>
 " write
 nnoremap <leader>w :write<cr>
 " focus current window only, hide others
@@ -83,6 +92,7 @@ tnoremap <a-l> <c-\><c-n><c-w><c-l>
 " Function keys F1-42 {{{
 "
 nnoremap <F1> :NERDTreeToggle<cr>
+nnoremap <F2> :GundoToggle<cr>
 "
 " }}}
 

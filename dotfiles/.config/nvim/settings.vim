@@ -14,7 +14,7 @@ set smartindent
 set completeopt=menu,noinsert,noselect,longest,menuone,preview
 set splitbelow " if completion provides preview/info window do it at bottom
 set previewheight=60 " max height of preview window
-set autochdir
+set noautochdir " this is default anyhow, but being explicit here.
 let g:netrw_home=$HOME.'/.cache'
 let mapleader="\<Space>"
 let maplocalleader = "\\"

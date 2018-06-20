@@ -18,6 +18,14 @@ call minpac#init({'verbose': '2'})
 " add your au command to format on fole write if you want
 call minpac#add('sbdchd/neoformat')
 
+" syntax highlight for them files and more
+call minpac#add('jparise/vim-graphql')
+
+" fancy splash, and easy session management
+" :help 'sessionoptions' maybe I want +=localoptions
+" see whatts there :set sessionoptions?
+call minpac#add('mhinz/vim-startify')
+
 " visual folder structure
 " is crusial on new projects
 call minpac#add('scrooloose/nerdtree')
