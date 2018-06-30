@@ -49,9 +49,10 @@ mkcd() {
 # ssh with no params will grep for me
 #
 ssh() {
+    local c="ssh ${@}"
     [ -z $1 ] && $(
         cat ~/.history | grep -e '^ssh..*' | sort -u | fzf --height=30
-    ) || command ssh $@
+    ) || command ssh $@ && echo $c >> ~/.history
 }
 
 
