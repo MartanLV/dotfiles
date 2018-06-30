@@ -6,42 +6,11 @@
 # * tab key terminal keybinding is ^I
 #__
 
-# [f]uzzy [kill] match and kill a process(es)
-fkill() {
-    local pid
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-
-    if [ "x$pid" != "x" ]
-    then
-        echo $pid | xargs kill -${1:-9}
-    fi
-}
-
-# [f]uzzy [a]rtisan function
-function fa() {
-    # foce ansi as that program detect's we are not writing into TTY
-    local _fapreview="php artisan help {1} --ansi"
-    # painting some ansi by hand as the raw flag gives pure list
-    local alist=$(a list --raw | sed -El "s/^([a-z,:,-]+)/$(tput setaf 2)\1$(tput sgr0)/")
-    # left wrapped preview
-    local acmds=$(echo -n $alist | fzf --ansi --preview=$_fapreview --preview-window left:wrap)
-    # if not canceled
-    if [[ $acmds ]]; then
-        # strip the command signature part
-        local acmd=$(echo $acmds | sed 's/ .*//')
-        # also print the help again
-        php artisan help $acmd
-        # writes it out for ya
-        print -z "php artisan $acmd"
-    fi
-}
-
 setopt share_history
 alias vim='nvim'
 
 # zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install # are for word&tab completions
-eval "$(fasd --init env zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-unalias a
+eval "$(fasd --init env zsh-hook zsh-ccomp posix-alias zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 source ~/.zsh/conf/aliases.zsh
 source ~/.zsh/conf/colors.zsh
@@ -67,3 +36,4 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 bindkey "^X^A" zaw-applications
+

@@ -18,6 +18,10 @@ call minpac#init({'verbose': '2'})
 " add your au command to format on fole write if you want
 call minpac#add('sbdchd/neoformat')
 
+" syntax highlight for them files
+call minpac#add('cespare/vim-toml')
+call minpac#add('maralla/vim-toml-enhance')
+
 " syntax highlight for them files and more
 call minpac#add('jparise/vim-graphql')
 

@@ -2,7 +2,8 @@
 ## git
 #
 alias g='git'
-alias gco='git checkout'
+alias gco='_gco'
+alias gco.='_gco_revision'
 alias gd="git diff"
 alias ga="git add"
 alias gm="git merge"
@@ -17,18 +18,17 @@ alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset
 #
 ## SYSTEM
 #
-alias 1='cd -'
-alias 2='cd -2'
-alias 3='cd -3'
-alias 4='cd -4'
+alias -1='cd -'
+alias -2='cd -2'
+alias -3='cd -3'
+alias -4='cd -4'
 alias .z="source $DOTFILES/dotfiles/.zsh/.zshrc"
 alias .z!="vim $DOTFILES/dotfiles/.zsh/.zshrc"
 alias .zenv!="vim $HOME/.zshenv"
 alias ls="ls -GFh"
-alias l="ls -la"
 # @DOTBOT:BREW(exa)
-alias la="exa --all --binary --group --header --long --git --color=automatic"
-alias lst="exa --long --tree --all"
+alias l="exa --all --binary --group --header --long --git --color=automatic"
+alias la="exa --long --tree --all"
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -40,6 +40,7 @@ alias top='glances'
 alias htop='glances'
 alias rmf='rm -rf'
 alias mkc='mkcd'
+alias mkd='mkcd'
 
 #
 ## DOCKER
@@ -66,6 +67,4 @@ alias c='composer'
 ## MISC
 #
 alias r='ranger'
-# open in vim
-alias v='f -e nvim'
 
