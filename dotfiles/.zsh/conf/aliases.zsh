@@ -41,6 +41,7 @@ alias htop='glances'
 alias rmf='rm -rf'
 alias mkc='mkcd'
 alias mkd='mkcd'
+alias mk='mkdir -p'
 
 #
 ## DOCKER
@@ -67,4 +68,5 @@ alias c='composer'
 ## MISC
 #
 alias r='ranger'
+alias cr='crystal'
 

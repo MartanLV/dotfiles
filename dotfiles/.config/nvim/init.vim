@@ -16,6 +16,7 @@ so ~/.config/nvim/pluginConfig/nerdtree.vim
 so ~/.config/nvim/pluginConfig/phpactor.vim
 so ~/.config/nvim/pluginConfig/startify.vim
 
+let g:pad#set_mappings=0
 " strange how this is not default a behaviour ...
 " this will remember cursor position and scroll across buffer swithces
 au BufLeave * if !&diff | let b:winview = winsaveview() | endif

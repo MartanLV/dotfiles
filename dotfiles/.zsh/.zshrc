@@ -6,6 +6,7 @@
 # * tab key terminal keybinding is ^I
 #__
 
+setopt hist_ignore_dups
 setopt share_history
 alias vim='nvim'
 

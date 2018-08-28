@@ -83,6 +83,8 @@ call minpac#add('wincent/ferret') " within files search
 
 " call minpac#add('ryanoasis/vim-devicons')
 call minpac#add('junegunn/goyo.vim') "distraction free mode
+call minpac#add('rhysd/vim-crystal') " crystal lang syntax & more
+call minpac#add('yoru/deoplete-crystal') " crystal + cracker
 
 "syntax themes
 call minpac#add('MartanLV/vim-deus')
